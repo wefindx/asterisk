@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='asterisk',
-    version='0.0.0',
+    version='0.0.1',
     description='Tools for computing asset risk with respect to goals.',
     url='https://github.com/mindey/asterisk',
     author='Mindey I.',
