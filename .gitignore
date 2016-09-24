@@ -1,0 +1,35 @@
+# General stuff
+# Python bytecode:
+*.py[co]
+/dist
+
+# Packaging files:
+*.egg*
+
+Virtualenv
+.env
+env
+.vimrc
+
+# Sphinx docs:
+build
+
+# Linux Editors
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+*.swp
+*.swo
+
+# Mac
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
