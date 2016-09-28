@@ -33,3 +33,6 @@ tramp
 # Windows
 Thumbs.db
 Desktop.ini
+
+# IPython Notebook
+.ipynb_checkpoints/
