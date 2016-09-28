@@ -1,1 +1,1 @@
-from .wikidata.wikidata import *
+from wikidata import *
