@@ -14,7 +14,7 @@ import statsmodels.api as sm
 
 I think of implementing this package in context of these packages, which encapuslate also ``numpy``. Moreover, I am thinking that probably I should also use the ``xarray`` by Pydata instead of ``Pandas``, because it supports multi-dimensional labeled data, but I want to start with ``Pandas``, which I know well.
 
-I would ``import asterisk as ri``. It associates well with "risk".
+I would ``import asterisk as rx``. It associates well with "risk", and is easy to type.
 
 ## What I Want to Include First.
 
