@@ -8,7 +8,7 @@ That means, in order to define a goal, we simply construct a concept, much like 
 
 ```
 >>> import asterisk as rx
->>> Universe = rx.Universe()
+>>> Universe = rx.Concept('Q1')
 >>> reality = Universe({'gravitational constant': 6.67408e-11})
 >>> goal = Universe({'gravitational constant': 6.69408e-11})
 ```
