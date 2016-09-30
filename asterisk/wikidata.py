@@ -153,17 +153,19 @@ def Concept(wikidata_id):
 
     class Name(): pass
 
-    def _init(self, details={}):
+    def _init(self, details={}, fact=False):
         self.details = details
+        self.fact = fact
+        if self.fact:
+            self.sign = '.'
+        else:
+            self.sign = '*'
         self.alias = _alias
         self.aliases = self.__class__.concept['entities'][wikidata_id]['aliases']
         self.claims = self.__class__.concept['entities'][wikidata_id]['claims']
 
-    def _repr(self):
-        if self.details:
-            return ('%s (%s)' % (self.alias, self.details)).encode('utf8')
-        else:
-            return self.alias.encode('utf8')
+    def _neg(self):
+        return self
 
     def _set_langs(self, language_codes):
         '''
@@ -176,8 +178,14 @@ def Concept(wikidata_id):
         self.languages = language_codes
         self.alias = get_lang(self.aliases, self.languages)[0]['value']
 
+    def _repr(self):
+        if self.details:
+            return ('%s%s (%s)' % (self.sign, self.alias, self.details)).encode('utf8')
+        else:
+            return ('%s%s' % (self.sign, self.alias)).encode('utf8')
+
     def _unicode(self):
-        return '%s' % (self.alias,)
+        return '%s%s' % (self.sign, self.alias,)
 
     propositions = ''
 
@@ -206,6 +214,7 @@ def Concept(wikidata_id):
     Name.set_langs = _set_langs
     Name.languages = _languages
     Name.__doc__ =  _doc
+    Name.__neg__ = _neg
 
     return Name
 

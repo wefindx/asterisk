@@ -18,8 +18,11 @@ To achieve any goal, we simply search what the goal state depends on, express th
 However, in order to differentiate between reality and goal, it would be convenient to have different ways to assign the property values, for example:
 
 ```
->>> reality = Universe.fact({'gravitational constant': 6.67408e-11})
->>> desirity = Universe.goal({'gravitational constant': 6.69408e-11})
+>>> reality = Universe({'gravitational constant': 6.67408e-11}, fact=True)
+>>> reality
+.The Universe ({'gravitational constant': 6.67408e-11})
+>>> desirity = Universe({'gravitational constant': 6.69408e-11}, fact=False)
+*The Universe ({'gravitational constant': 6.69408e-11})
 ```
 
 Defining an addition operation on these concepts, would allow us to add up multiple goals to create common ``dream landscape`` (think in comparison to ``risk landscape``), and to add up multiple facts to create a picture of reality.
