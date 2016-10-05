@@ -7,8 +7,9 @@
 
 This is an attempt to create an abstract framework for general purpose AI, in Python. :)
 
-Implement the below classes of F(), X(), Y(), and run Process.collect() in parallel controlled 
-by Process.predict() to continually model F(), optimize X() to achieve Y() to create an AI.
+Implement the below classes of F(), X(), Y(), and run Process.collect() in parallel 
+controlled by Process.predict() to continually model F(), optimize X() to achieve Y() 
+to create an AI.
 
 Note: F and Y could be defined in terms of some concepts, like WikiData IDs.
 We probably need a Python package that implements association with WikiData IDs.
@@ -16,17 +17,17 @@ We probably need a Python package that implements association with WikiData IDs.
 
 The F
 =====
-F is the world's model. I would mainly use SymPy (sympy.org) to define deterministic relations,
-like laws of physics, and use Chainer (chainer.org) to learn non-deterministic, experiences as
-models:
+F is the world's model. I would mainly use SymPy (sympy.org) to define deterministic 
+relations, like laws of physics, and use Chainer (chainer.org) to learn non-deterministic, 
+experiences as models:
 >>> import sympy as S, chainer
 
 The X
 =====
-X is the agent's actions. I would use this class to assmble all non-trivial actions, that an 
-agent could take, such as even collect data actions, and perform some changes of the world. 
-I would use things like gpio (RaspberryPI), mechanize (python.org/pypi/mechanize), 
-requests (docs.python-requests.org), responses (pypi.python.org/pypi/responses):
+X is the agent's actions. I would use this class to assmble all non-trivial actions, 
+that an agent could take, such as even collect data actions, and perform some changes of the world. I would use things like gpio (RaspberryPI), mechanize 
+(python.org/pypi/mechanize), requests (docs.python-requests.org), responses 
+(pypi.python.org/pypi/responses):
 >>> import gpio, mechanize, requests, responses
 
 The Y
@@ -40,14 +41,15 @@ in form of everything that exists and existed.)
 For storing the ranges of assets, I would use:
 >>> import plandf
 
-For storing the reasons, I would use projection of the future world F', and probably networkx
-for causal connections.
+For storing the reasons, I would use projection of the future world F', and probably
+networkx for causal connections.
 >>> import networkx
 
 The Utils
 =========
-In order to put the data into right format for analysis (i.e., do ETL=Extract-Transform-Load),
-we need to use some package to align it, and I would use Pandas (pandas.pydata.org).
+In order to put the data into right format for analysis (i.e., do
+ETL=Extract-Transform-Load), we need to use some package to align it, and I would use 
+Pandas (pandas.pydata.org).
 >>> import pandas as pd, xarray as xr
 
 # Note on ETL:
@@ -55,10 +57,10 @@ we need to use some package to align it, and I would use Pandas (pandas.pydata.o
 
 The Stats
 =========
-In order to put the features into right format for deciding (i.e., do EWA=Extract-Weight-Act),
-we need to use some packages to incrementally extract features, and I would use StatsModels,
-Sci-Kit Learn, Scikit Image, and others, in combination with plandf, to arrive at comparison
-between goals and predictions.
+In order to put the features into right format for deciding (i.e., do 
+EWA=Extract-Weight-Act), we need to use some packages to incrementally extract features, 
+and I would use StatsModels, Sci-Kit Learn, Scikit Image, and others, in combination 
+with plandf, to arrive at comparison between goals and predictions.
 >>> import plandf, statsmodels as sm, sklearn
 
 # Note on EWA - (it's my own made-up concept)

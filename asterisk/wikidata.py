@@ -5,13 +5,16 @@ import requests
 BASE_URL = 'https://www.wikidata.org/w/api.php'
 
 def get_json(wikidata_id):
-    url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=%s&format=json' % (wikidata_id,)
-    dicts = json.loads(requests.get(url).content)
     try:
-        dicts = json.loads(requests.get(url).content)
+        dicts = json.loads(
+            requests.get(BASE_URL,
+                params={'action': 'wbgetentities',
+                        'ids': wikidata_id,
+                        'format': 'json'}
+            ).content)
         return dict(dicts, **{'success': True})
     except:
-        {'success': False}
+        return {'success': False}
 
 def get_lang(d, languages=['en', 'zh', 'de', 'ru', 'fr']):
     ''' 
@@ -20,7 +23,8 @@ def get_lang(d, languages=['en', 'zh', 'de', 'ru', 'fr']):
     languages:  list of language codes in a priority descending order
 
     OUTPUT
-    value of the first key that's available, or the first existing key, if none of the preferred languages are available
+    value of the first key that's available, or the first existing key, 
+    if none of the preferred languages are available
 
     EXAMPLE
     >>> get_lang({'en': 'love', 'zh': u'爱'}) 
@@ -35,7 +39,8 @@ def Concept(wikidata_id):
 
     '''
     INPUT
-    The wikidata ID (str), or (dict). If there is no internet connection to WikiData API, you can simply pass a dict.
+    The wikidata ID (str), or (dict). If there is no internet connection 
+    to WikiData API, you can simply pass a dict.
 
     OUTPUT
     class of WikiData type
@@ -49,8 +54,9 @@ def Concept(wikidata_id):
     >>> Dog2
     <class asterisk.wikidata.Q0 at 0x7fc2b43853f8>
 
-    In the second case, the class is always of 'Q0' type, which does not correspond to any WikiData concept.
-    However, objects derived from both types then have representations based on their languages. For example:
+    In the second case, the class is always of 'Q0' type, which does not 
+    correspond to any WikiData concept. However, objects derived from both 
+    types then have representations based on their languages. For example:
 
     >>> d1 = Dog1()
     >>> d1
@@ -59,7 +65,8 @@ def Concept(wikidata_id):
     >>> d2
     šuo
 
-    The derived objects can have different representations, and default languages are specified in .languages attribute, e.g.:
+    The derived objects can have different representations, and default 
+    languages are specified in .languages attribute, e.g.:
 
     >>> d2.languages
     ['lt', 'en']
@@ -69,13 +76,15 @@ def Concept(wikidata_id):
     >>> d2.set_langs(['en', 'lt'])
     >>> d2
 
-    The first available language specified is returned, or if it is not available, the first available language is returned:
+    The first available language specified is returned, or if it is not 
+    available, the first available language is returned:
 
     >>> d1.set_langs([])
     >>> d1
     σκυλί
 
-    The WikiData information about claims and aliases is available in .claims and .aliases respectively:
+    The WikiData information about claims and aliases is available in 
+    .claims and .aliases respectively:
 
     >>> d1.aliases
     {u'el': [{u'value': u'\u03c3\u03ba\u03c5\u03bb\u03af', u'language': u'el'}...
@@ -86,7 +95,8 @@ def Concept(wikidata_id):
     >>> d2.claims
     {}
 
-    Additionally, each claim (property) is available as an attribute, for example 'Q189539' represents a loan,
+    Additionally, each claim (property) is available as an attribute, 
+    for example 'Q189539' represents a loan,
 
     >>> Loan = Concept('Q189539')
 
@@ -102,9 +112,11 @@ def Concept(wikidata_id):
     entity
     quantity
 
-    The knowledge of qualities may allow us to formulate goals, and know in advance, what to look for in this type of things.
+    The knowledge of qualities may allow us to formulate goals, and know 
+    in advance, what to look for in this type of things.
 
-    Each property, in turn, can have nested information provided about itself in terms of P and Q values.
+    Each property, in turn, can have nested information provided about 
+    itself in terms of P and Q values.
 
     We can create instances with details
 
@@ -112,12 +124,14 @@ def Concept(wikidata_id):
     >>> l1
     préstamo ({'lender': 'John', 'debtor': 'Julia', 'amount': 1000})
     
-    Now, we will later implement the method "save" to save the instances to general database as:
+    Now, we will later implement the method "save" to save the instances 
+    to general database as:
 
     >>> l1.save()
 
-    This will allow to keep one database of any things. As described in the ``ai.py``, we could use several custom constructors
-    to record the Goals and Facts about the world:
+    This will allow to keep one database of any things. As described in the 
+    ``ai.py``, we could use several custom constructors to record the Goals 
+    and Facts about the world:
 
     >>> imaginary_loan = Loan.goal({'lender': 'John', 'debtor': 'Julia', 'amount': 1000})
     >>> actual_loan = Loan.fact({'lender': 'John', 'debtor': 'Julia', 'amount': 1000})
@@ -132,7 +146,6 @@ def Concept(wikidata_id):
 
     # Defining Classes Programmatically:
     # http://chimera.labs.oreilly.com/books/1230000000393/ch09.html#_defining_classes_programmatically
-
 
     if isinstance(wikidata_id, str):
         _concept = get_json(wikidata_id)
@@ -170,7 +183,8 @@ def Concept(wikidata_id):
     def _set_langs(self, language_codes):
         '''
         INPUT
-        languages a list of language codes, in order of priority to be displayed if exists
+        languages a list of language codes, in order of priority to be displayed 
+        if exists
 
         OUTPUT
         sets the .alias, which is used in __repr__
