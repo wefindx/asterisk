@@ -1,3 +1,4 @@
+[![Travis status](https://img.shields.io/travis/mindey/asterisk/master.svg?style=flat)](https://travis-ci.org/mindey/asterisk)
 # Asterisk
 Tools for computing asset risk with respect to goals.
 
