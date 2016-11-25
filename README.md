@@ -6,4 +6,6 @@ Today advanced decision-making and artificial intelligence techniques are used p
 
     pip install asterisk
 
+(Currently only on Python 2.7, will extend and add tests soon.)
+
 It will depend on ``pandas``, ``sympy``, and a few more packages.
