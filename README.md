@@ -10,7 +10,7 @@ Asterisk implements a wrapper on top of the WikiData API, as a source for schema
 
 ## Examples
 
-Plans defined with "Q" retrieve and map schemas from WikiData. E.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat. When instantiating an item from schema, by default, the ``.fact=False``, and the instances are prepended with asterisk ``*``, meaning that it is something hypothesized, not really existing. If the thing that you are instantiating actually exists in real life (e.g., a specific human, a specific loan), pass the ``.fact=True`` (and you can also add attribute such as ``Lithuania's republic passport ID``, or ``Bondora loan ID`` to provide actual reference to identify with real thing.) The real things are prepended with dot ``.`` rather than asterisk.
+When instantiating an item from schema, by default, the ``.fact=False``, and the instances are prepended with asterisk ``*``, meaning that it is something hypothesized, not really existing. If the thing that you are instantiating actually exists in real life (e.g., a specific human, a specific loan), pass the ``.fact=True`` (and you can also add attribute such as ``Lithuania's republic passport ID``, or ``Bondora loan ID`` to provide actual reference to identify with real thing.) The real things are prepended with dot ``.`` rather than asterisk.
 
 You can define a goal as a set of assets within an output of a step, part of plan. At the moment. the .Plan does not yet work, but you can already instantiate lists like:
 
@@ -44,6 +44,7 @@ dollar = Dollar()
     'output': {cat: 1}}
 ]
 ```
+Plans defined with "Q" retrieve and map schemas from WikiData. E.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat.
 
 ### Future:
 
