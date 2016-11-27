@@ -44,7 +44,7 @@ dollar = Dollar()
     'output': {cat: 1}}
 ]
 ```
-Classes defined with "Q" retrieve and map schemas from WikiData. E.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat.
+Classes defined with "Q" retrieve and map schemas from WikiData (e.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat), while the ones defined without "Q" with multi-lingual dictionaries instead, are not mapped to actual concepts, and are provided as a "last resort", when you only need a multilingual word, so that you could display the plans for different audiences in their own language. Using "Q" automatically loads the language aliases in all available languages on WikiData, so you don't have to care about writing out all aliases. Instantiating from WikiData also provides much more information, like the definitions of the concept in many languages, relations, etc.
 
 ### Future:
 
