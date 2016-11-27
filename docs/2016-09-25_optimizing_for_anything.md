@@ -1,4 +1,4 @@
-== 'Choose Anything' ==
+# 'Choose Anything'
 
 It would not be hard to enable this tool to optimize for everything. For example:
 
