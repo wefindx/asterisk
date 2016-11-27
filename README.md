@@ -35,8 +35,7 @@ dollar = Dollar()
 # List of Steps
 [
     {'input': {alice: 1, bob: 1},
-    'output': {family: 1}
-    },
+    'output': {family: 1}},
     
     {'input': {dollar: 200},
     'output': {cat: 1}},
@@ -53,8 +52,8 @@ dollar = Dollar()
 plan = rx.Plan(
     [
         {'input': {alice: 1, bob: 1},
-        'output': {family: 1}
-        },
+        'output': {family: 1}},
+        
         {'input': [
             {'input': {dollar: 200},
             'output': {cat: 1}},
