@@ -4,7 +4,7 @@ Tools for computing asset risk with respect to goals.
 
 Today advanced decision-making and artificial intelligence techniques are used primarily by financial and security industries. This is an attempt to create a tool that would be useful to apply the advanced decision-making techniques for people's personal lives, with respect to any goals, and any assets. We learned math at school, so let's apply it not only at work, but also at home.
 
-    pip install asterisk                                          (only Python2.7 for now)
+    pip install asterisk                                         # only Python2.7 for now
 
 Asterisk implements a wrapper on top of the WikiData API, as a source for schemas of objects, so that we could automatically have multilingual, well-defined concepts, with respect to which to define assets. Then, it will use the functionality of packages ``stepio`` and ``plandf``, and more, to provide the means to create computable, multilingual, hierarchial plans.
 
