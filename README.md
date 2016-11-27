@@ -69,3 +69,5 @@ plan = rx.Plan(
 
 plan.risk()
 ```
+
+Read the intial thoughts on Asterisk: https://github.com/mindey/asterisk/blob/master/docs/2016-09-24_Initial_Thoughts.md, and the follow-up thoughts https://github.com/mindey/asterisk/tree/master/docs .
