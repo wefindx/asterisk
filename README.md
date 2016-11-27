@@ -44,7 +44,7 @@ dollar = Dollar()
     'output': {cat: 1}}
 ]
 ```
-Plans defined with "Q" retrieve and map schemas from WikiData. E.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat.
+Classes defined with "Q" retrieve and map schemas from WikiData. E.g., [Q144](https://www.wikidata.org/wiki/Q144) is a dog, and [Q146](https://www.wikidata.org/wiki/Q144) is a cat.
 
 ### Future:
 
