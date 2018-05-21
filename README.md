@@ -82,7 +82,7 @@ plan = rx.Plan(
             {'input': {dollar: 250},
             'output': {cat: 1}}
             ],
-         'output': 'compute'
+         'output': '*'
          }
     ]
 )
